@@ -11,7 +11,7 @@ const authenticateToken = require("./middleware/auth"); // ✅ Import JWT middle
 
 // 3. Create the Express app
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // 4. Middleware
 app.use(express.json());
