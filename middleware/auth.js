@@ -10,6 +10,8 @@ function authenticateToken(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // Must match the secret used when signing
+    console.log("✅ Token decoded:", decoded);
+
     req.user = decoded; // Attach user info to request
     next(); // Proceed to the next middleware or route
   } catch (err) {
