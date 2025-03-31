@@ -150,6 +150,13 @@ app.delete("/api/tasks", authenticateToken, async (req, res) => {
     res.status(500).json({ error: "Failed to delete all tasks" });
   }
 });
+
+
+
+// ✅ Add this here (BEFORE app.listen)
+app.get("/", (req, res) => {
+  res.send("Home page is working!");
+});
 // 7. Start the server
 if (require.main === module) {
   app.listen(PORT, () => {
