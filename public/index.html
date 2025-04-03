@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Task Manager</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <h1>Task Manager</h1>
-
-  <div id="auth-section">
-    <h2>Register</h2>
-    <input type="email" id="registerEmail" placeholder="Email">
-    <input type="password" id="registerPassword" placeholder="Password">
-    <button onclick="register()">Register</button>
-
-    <h2>Login</h2>
-    <input type="email" id="loginEmail" placeholder="Email">
-    <input type="password" id="loginPassword" placeholder="Password">
-    <button onclick="login()">Login</button>
-  </div>
-
-  <div id="task-section" style="display: none;">
-    <h2>Tasks</h2>
-    <input type="text" id="taskTitle" placeholder="New Task Title">
-    <button onclick="createTask()">Add Task</button>
-    <ul id="taskList"></ul>
-    <button onclick="logout()">Logout</button>
-  </div>
-
-  <script src="app.js"></script>
+  <form class="form" id="login-form">
+    <p class="form-title">Sign in to your account</p>
+    
+    <div class="input-container">
+      <input id="login-email" name="email" placeholder="Enter email" type="email" required>
+      <span><!-- icon --></span>
+    </div>
+  
+    <div class="input-container">
+      <input id="login-password" name="password" placeholder="Enter password" type="password" required>
+      <span><!-- icon --></span>
+    </div>
+  
+    <button class="submit" type="submit">Sign in</button>
+  
+    <p class="signup-link">No account? <a href="#" id="toggle-register">Sign up</a></p>
+  </form>
+  
 </body>
 </html>
