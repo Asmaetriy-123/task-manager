@@ -61,13 +61,15 @@ if (loginForm) {
     const password = loginForm.querySelector('input[name="password"]').value;
 
     try {
-      const res = await fetch('https://task-manager-34x7.onrender.com/api/auth/login', {
+      const res = await fetch('https://task-manager-34x7.onrender.com/api/login'
+, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
+console.log("Login response:", data);
       if (res.ok) {
         alert('Login successful!');
         // optionally: localStorage.setItem("token", data.token);
@@ -81,3 +83,28 @@ if (loginForm) {
     }
   });
 }
+//to check if the login is successful ot not 
+/*
+try {
+  const res = await fetch('https://task-manager-34x7.onrender.com/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    alert("✅ Login successful!");
+    // Optionally store token: localStorage.setItem("token", data.token);
+    // Redirect to another page: window.location.href = "dashboard.html";
+  } else {
+    alert(`❌ Login failed: ${data.error}`);
+  }
+
+} catch (error) {
+  alert("❌ An error occurred during login.");
+  console.error(error);
+}
+  */
+

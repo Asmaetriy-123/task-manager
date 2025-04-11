@@ -4,6 +4,7 @@ require("dotenv").config();
 // 2. Import packages
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path"); // ✅ ADDED
 const Task = require("./models/task");
 const User = require("./models/user");
 const taskSchema = require("./validation/taskValidation");
@@ -15,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 // 4. Middleware
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("public")); // ✅ Serves files from /public
 
 // 5. Connect to MongoDB
 async function connectToDB() {
@@ -45,6 +46,7 @@ app.post("/api/register", async (req, res) => {
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
+    console.error(err); // ✅ Optional debug log
     res.status(500).json({ error: "Registration failed" });
   }
 });
@@ -58,17 +60,18 @@ app.post("/api/login", async (req, res) => {
       return res.status(400).json({ error: "Invalid email or password" });
     }
 
-    // ✅ Generate JWT token
     const jwt = require("jsonwebtoken");
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
     res.json({ token });
   } catch (err) {
+    console.error(err); // ✅ Optional debug log
     res.status(500).json({ error: "Login failed" });
   }
 });
 
-// 🛡️ All the routes below require authentication
+// 🛡️ All routes below require authentication
+
 // ✅ Create Task
 app.post("/api/tasks", authenticateToken, async (req, res) => {
   const { error } = taskSchema.validate(req.body);
@@ -78,13 +81,13 @@ app.post("/api/tasks", authenticateToken, async (req, res) => {
     const newTask = new Task({
       title: req.body.title,
       completed: req.body.completed,
-      user: req.user.userId, // ✅ Attach logged-in user's ID
-
+      user: req.user.userId,
     });
 
     const savedTask = await newTask.save();
     res.status(201).json(savedTask);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to create task" });
   }
 });
@@ -92,9 +95,10 @@ app.post("/api/tasks", authenticateToken, async (req, res) => {
 // ✅ Get All Tasks
 app.get("/api/tasks", authenticateToken, async (req, res) => {
   try {
-    const tasks = await Task.find({ user: req.user.userId }); // ✅ Filter by user
+    const tasks = await Task.find({ user: req.user.userId });
     res.status(200).json(tasks);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to fetch tasks" });
   }
 });
@@ -106,6 +110,7 @@ app.get("/api/tasks/:id", authenticateToken, async (req, res) => {
     if (!task) return res.status(404).json({ error: "Task not found" });
     res.json(task);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to get task" });
   }
 });
@@ -124,6 +129,7 @@ app.put("/api/tasks/:id", authenticateToken, async (req, res) => {
     if (!updatedTask) return res.status(404).json({ error: "Task not found" });
     res.json(updatedTask);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to update task" });
   }
 });
@@ -138,18 +144,27 @@ app.delete("/api/tasks/:id", authenticateToken, async (req, res) => {
     if (!deletedTask) return res.status(404).json({ error: "Task not found" });
     res.json({ message: "Task deleted successfully" });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to delete task" });
   }
 });
+
 // ✅ Delete All Tasks
 app.delete("/api/tasks", authenticateToken, async (req, res) => {
   try {
     const result = await Task.deleteMany({ user: req.user.userId });
     res.status(200).json({ message: `All ${result.deletedCount} tasks deleted` });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to delete all tasks" });
   }
 });
+
+// ✅ ✅ ✅ Add this last – handles all frontend routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // 7. Start the server
 if (require.main === module) {
   app.listen(PORT, () => {
