@@ -87,8 +87,10 @@ console.log("Login response:", data);
 
 //saving the username to display it later in the home page 
 if (res.ok) {
-  localStorage.setItem("username", email.split("@")[0]); // Store the username
   alert('Login successful!');
-  window.location.href = 'tasks.html';} // Redirect to the tasks dashboard
+  localStorage.setItem("token", data.token); // ✅ Save JWT
+  localStorage.setItem("username", email.split("@")[0]); // ✅ Save username
+  window.location.href = 'tasks.html'; // ✅ Redirect to your tasks page
+}
 
 
