@@ -49,16 +49,39 @@
     background-color: #353535;
   }
   
+  .workspace-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #353535;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+  
+  .workspace-container:hover {
+    background-color: #4a4a4a;
+  }
+  
   .workspace {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
   }
   
   .plus-icon {
-    font-size: 18px;
-    color: #bbb;
+    font-size: 20px;
+    color: #ddd;
     cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .plus-icon:hover {
+    background-color: #555;
   }
   
   .main-content {
