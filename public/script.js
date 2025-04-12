@@ -83,28 +83,12 @@ console.log("Login response:", data);
     }
   });
 }
-//to check if the login is successful ot not 
-/*
-try {
-  const res = await fetch('https://task-manager-34x7.onrender.com/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-  });
 
-  const data = await res.json();
 
-  if (res.ok) {
-    alert("✅ Login successful!");
-    // Optionally store token: localStorage.setItem("token", data.token);
-    // Redirect to another page: window.location.href = "dashboard.html";
-  } else {
-    alert(`❌ Login failed: ${data.error}`);
-  }
+//saving the username to display it later in the home page 
+if (res.ok) {
+  localStorage.setItem("username", email.split("@")[0]); // Store the username
+  alert('Login successful!');
+  window.location.href = 'tasks.html';} // Redirect to the tasks dashboard
 
-} catch (error) {
-  alert("❌ An error occurred during login.");
-  console.error(error);
-}
-  */
 

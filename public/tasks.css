@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .sidebar {
+    background-color: #1f1f1f;
+    color: white;
+    width: 250px;
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
+  
+  .app-title {
+    margin-bottom: 2rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+  
+  .nav-item:hover,
+  .nav-item.active {
+    background-color: #353535;
+  }
+  
+  .workspace {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .plus-icon {
+    font-size: 18px;
+    color: #bbb;
+    cursor: pointer;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tasks-section h2 {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+  }
+  

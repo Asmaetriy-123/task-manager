@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="tasks.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Task Manager - Tasks</title>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="app-title">Task Manager</h2>
+      <nav class="nav-links">
+        <a href="#" class="nav-item active"><span class="material-icons">dashboard</span>Dashboard</a>
+        <a href="#" class="nav-item"><span class="material-icons">check_circle</span>Tasks</a>
+        <a href="#" class="nav-item"><span class="material-icons">alarm</span>Reminders</a>
+        <a href="#" class="nav-item"><span class="material-icons">history</span>History</a>
+        <a href="#" class="nav-item workspace">
+          <span class="material-icons">workspaces</span>Workspaces
+          <span class="material-icons plus-icon">add</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <header>
+        <h1>Hello, <span id="username">User</span></h1>
+      </header>
+
+      <section class="tasks-section">
+        <h2>Today's Tasks</h2>
+        <div id="tasks-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="tasks.js"></script>   
+  </script>
+</body>
+</html>
