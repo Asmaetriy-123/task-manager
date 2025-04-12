@@ -52,6 +52,7 @@ if (registerForm) {
 }
 
 // Login logic
+// Login logic
 const loginForm = document.querySelector("#login-form");
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
@@ -61,19 +62,19 @@ if (loginForm) {
     const password = loginForm.querySelector('input[name="password"]').value;
 
     try {
-      const res = await fetch('https://task-manager-34x7.onrender.com/api/login'
-, {
+      const res = await fetch('https://task-manager-34x7.onrender.com/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
-console.log("Login response:", data);
+      console.log("Login response:", data);
+
       if (res.ok) {
+        localStorage.setItem("username", email.split("@")[0]); // ✅ Save username
         alert('Login successful!');
-        // optionally: localStorage.setItem("token", data.token);
-        window.location.href = 'dashboard.html'; // Change to your app page
+        window.location.href = 'tasks.html'; // ✅ Redirect to tasks page
       } else {
         alert(data.message || 'Login failed');
       }
@@ -84,13 +85,5 @@ console.log("Login response:", data);
   });
 }
 
-
-//saving the username to display it later in the home page 
-if (res.ok) {
-  alert('Login successful!');
-  localStorage.setItem("token", data.token); // ✅ Save JWT
-  localStorage.setItem("username", email.split("@")[0]); // ✅ Save username
-  window.location.href = 'tasks.html'; // ✅ Redirect to your tasks page
-}
 
 
