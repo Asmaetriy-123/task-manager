@@ -70,12 +70,14 @@ if (loginForm) {
 
       const data = await res.json();
       console.log("Login response:", data);
-
       if (res.ok) {
-        localStorage.setItem("username", email.split("@")[0]); // ✅ Save username
-        alert('Login successful!');
-        window.location.href = 'tasks.html'; // ✅ Redirect to tasks page
-      } else {
+        localStorage.setItem("token", data.token); // ✅ Save token
+        localStorage.setItem("username", email.split("@")[0]); // Save username
+        alert("Login successful!");
+        window.location.href = "tasks.html"; // Redirect
+      }
+      
+       else {
         alert(data.message || 'Login failed');
       }
     } catch (err) {
