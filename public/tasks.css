@@ -56,19 +56,21 @@
     padding: 10px;
     border-radius: 6px;
     transition: background-color 0.2s;
+    color: white;
+    text-decoration: none;
+    gap: 10px;
   }
   
   .workspace-container:hover {
-    background-color: #4a4a4a;
+    background-color: #353535;
   }
-  
   .workspace {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: white;
-    text-decoration: none;
+    padding: 0;
   }
+  
   
   .plus-icon {
     font-size: 20px;
