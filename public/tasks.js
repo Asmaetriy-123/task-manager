@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     try {
       const payload = JSON.parse(atob(token.split('.')[1]));
-      const username = payload.username || payload.email?.split("@")[0] || "User";
+      const username = payload.username || payload.email?.split('@')[0] || "User";
   
       const usernameSpan = document.getElementById("username");
       if (usernameSpan) {

@@ -9,6 +9,8 @@ const Task = require("./models/task");
 const User = require("./models/user");
 const taskSchema = require("./validation/taskValidation");
 const authenticateToken = require("./middleware/auth"); // ✅ Import JWT middleware
+const jwt = require("jsonwebtoken"); // make sure it's imported at the top
+
 
 // 3. Create the Express app
 const app = express();
@@ -61,8 +63,11 @@ app.post("/api/login", async (req, res) => {
     }
 
     const jwt = require("jsonwebtoken");
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-
+    const token = jwt.sign(
+      { userId: user._id, username: user.username, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
     res.json({ token });
   } catch (err) {
     console.error(err); // ✅ Optional debug log
