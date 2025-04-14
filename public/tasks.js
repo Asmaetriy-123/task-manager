@@ -33,3 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("delete-account-btn").addEventListener("click", () => {
     alert("Account deletion requires backend logic.");
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const dateSpan = document.getElementById("current-date");
+    const today = new Date();
+    const options = { weekday: "long", month: "long", day: "numeric" };
+    const formattedDate = today.toLocaleDateString("en-US", options);
+    dateSpan.textContent = formattedDate;
+  });
