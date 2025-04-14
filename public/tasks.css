@@ -14,40 +14,93 @@
     display: flex;
     width: 100%;
   }
-  .profile-menu {
-  position: relative;
-  float: right;
-  margin-right: 20px;
-}
+  .top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: #fff;
+    padding: 0 2rem;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 250px; /* width of your sidebar */
+    right: 0;
+    z-index: 100;
+  }
+  
+  .left-section .date-display {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .center-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-input {
+    width: 60%;
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .right-section .material-icons {
+    cursor: pointer;
+  }
+  
+  .profile-container {
+    position: relative;
+  }
+  
+  .profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    flex-direction: column;
+  }
+  
+  .profile-container:hover .profile-dropdown {
+    display: flex;
+  }
+  
+  .profile-dropdown button {
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .profile-dropdown button:hover {
+    background: #f0f0f0;
+  }
+  
 
-.profile-pic {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 10px;
-  border-radius: 4px;
-  z-index: 999;
-}
-
-.dropdown a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  padding: 8px 12px;
-}
-
-.dropdown a:hover {
-  background-color: #f2f2f2;
-}
   
   .sidebar {
     background-color: #1f1f1f;

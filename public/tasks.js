@@ -23,35 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById("dropdown-menu");
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
   });
+  /*the logout and delete account code */
   
-  // Logout
-  document.getElementById("logout").addEventListener("click", () => {
+  document.getElementById("logout-btn").addEventListener("click", () => {
     localStorage.removeItem("token");
     window.location.href = "index.html";
   });
   
-  // Delete account
-  document.getElementById("delete-account").addEventListener("click", async () => {
-    const confirmDelete = confirm("Are you sure you want to delete your account?");
-    if (!confirmDelete) return;
-  
-    const token = localStorage.getItem("token");
-    try {
-      const res = await fetch("https://task-manager-34x7.onrender.com/api/delete-account", {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` }
-      });
-  
-      if (res.ok) {
-        alert("Account deleted.");
-        localStorage.removeItem("token");
-        window.location.href = "index.html";
-      } else {
-        alert("Failed to delete account.");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Error deleting account.");
-    }
+  document.getElementById("delete-account-btn").addEventListener("click", () => {
+    alert("Account deletion requires backend logic.");
   });
-  

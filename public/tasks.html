@@ -9,16 +9,28 @@
 </head>
 <body>
   <div class="container">
-    <!--this is the navbar-->
-    <div class="navbar">
-      <div class="profile-menu">
-        <img src="avatar.png" alt="Profile" id="profile-toggle" class="profile-pic" />
-        <div class="dropdown" id="dropdown-menu">
-          <a href="#" id="logout">Logout</a>
-          <a href="#" id="delete-account">Delete Account</a>
+   <!-- Top Navbar -->
+
+   <header class="top-navbar">
+    <div class="left-section">
+      <span class="date-display">Monday, September 30</span>
+    </div>
+  
+    <div class="center-section">
+      <input type="text" class="search-input" placeholder="Search tasks..." />
+    </div>
+  
+    <div class="right-section">
+      <span class="material-icons">notifications</span>
+      <div class="profile-container">
+        <img src="profile.png" alt="Profile" class="profile-pic" />
+        <div class="profile-dropdown">
+          <button id="logout-btn">Logout</button>
+          <button id="delete-account-btn">Delete Account</button>
         </div>
       </div>
     </div>
+  </header>
     <!-- Sidebar -->
     <aside class="sidebar">
       <h2 class="app-title">Task Manager</h2>
