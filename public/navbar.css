@@ -35,7 +35,7 @@
   
   .navbar {
     grid-area: navbar;
-    background-color: #65bbe3;
+    background-color: #25292b;
     display: flex;
     align-items: center;
 
@@ -78,8 +78,8 @@
   .search_bar:focus{
     outline: none;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 149, 255, 0.5); /* soft blue glow */
-    border-color: #488abc; /* optional: border color to match */
+    box-shadow: 0 0 10px rgba(53, 66, 75, 0.5); /* soft blue glow */
+    border-color: #35393d; /* optional: border color to match */
 
 }
   .navbar_right {
