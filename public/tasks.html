@@ -5,32 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="tasks.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <link rel="stylesheet" href="navbar.css">
   <title>Task Manager - Tasks</title>
 </head>
 <body>
   <div class="container">
-   <!-- Top Navbar -->
-<!-- <header class="top-navbar">
-    <div class="left-section">
-      <span class="date-display" id="current-date"></span>
-
-    </div>
-  
-    <div class="center-section">
-      <input type="text" class="search-input" placeholder="Search tasks..." />
-    </div>
-  
-    <div class="right-section">
-      <span class="material-icons">notifications</span>
-      <div class="profile-container">
-        <img src="profile.png" alt="Profile" class="profile-pic" />
-        <div class="profile-dropdown">
-          <button id="logout-btn">Logout</button>
-          <button id="delete-account-btn">Delete Account</button>
-        </div>
+    <div class="layout">
+      <!--this is the sidebar-->
+      
+      <div class="sidebar">
+      <p>i am the sidebar</p>
       </div>
-    </div>
-  </header>-->
+      
+      
+      
+        <!--this is the navbar-->
+      <div class="navbar">
+          <!--this is the date-->
+          <div class="navbar_left">
+          <span class="today's date" id="date"> </span>
+      </div>
+              <!--this is the search icon & the search bar-->
+      <div class="navbar_right">
+          <span class="material-symbols-outlined" id="search_icon">search</span>
+           <input type="search" class="search_bar" id="input_search_bar" placeholder="Type to search">
+          <!--this is the settings icon-->
+          <a href="settings.html" class="settings-link" target="_blank">
+              <span class="material-symbols-outlined">settings</span>
+            </a>
+          <!--this is the profile section-->
+          <div class="profile_wrapper">
+              <span class="material-symbols-outlined" id="profile_icon"> account_circle</span>
+              <div class="profile_drop_down" id="drop_down_menu">
+      
+                  <div class="logout"> <span class="material-symbols-outlined">logout </span>
+                      <span>logout</span>
+                  </div>
+                  <div class="delete_account">
+                      <span class="material-symbols-outlined">delete_forever</span>
+                      <span>Delete account</span>
+      
+                  </div>
+              
+              </div>
+          </div>
+      </div>
+      
+          <span></span>
+      
+      
+      
+      </div>
+      </div>
+      
    
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -62,7 +91,7 @@
       </section>
     </main>
   </div>
-
+<script src="navbar.js"></script>
   <script src="script.js"></script>
   <script src="tasks.js"></script>   
 </body>

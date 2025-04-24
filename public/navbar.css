@@ -1,0 +1,143 @@
+:root {
+    --sidebar-width: clamp(200px, 20vw, 300px);
+  }
+  
+  @media (max-width: 600px) {
+    :root {
+      --sidebar-width: clamp(150px, 60vw, 300px);
+    }
+  }
+  
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    
+  }
+  
+  .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: 80px auto;
+    grid-template-areas: 
+      "sidebar navbar"
+      "sidebar content";
+    height: 100vh;
+  }
+  /*
+  
+  .sidebar {
+    grid-area: sidebar;
+    background-color: #605c5c;
+    padding: 1rem;
+    color: white;
+  }*/
+  
+  .navbar {
+    grid-area: navbar;
+    background-color: #65bbe3;
+    display: flex;
+    align-items: center;
+
+    padding: 1rem 2rem;
+    color: white;
+    
+  }
+  #search_icon,
+  #profile_icon,
+  .settings-link {
+    cursor: pointer;
+    user-select: none;
+  }
+ 
+  
+  .search_bar {
+    opacity: 0;
+  user-select: none;
+
+  width: 250px; /* fixed width is cleaner */
+  max-width: 90%; /* responsive fallback */
+  position: absolute;
+  right: 12rem;
+  top: 45%;
+  transform: translateY(-50%);
+  padding: 0.6rem 1.2rem;
+  
+  border: 1px solid #ccc;
+  border-radius: 20px; /* more natural roundness */
+  background-color: white;
+
+  
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+   
+  }
+  /* Visible state toggled by JS */
+  .search_bar.visible {
+    opacity: 1;
+  }
+  .search_bar:focus{
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 149, 255, 0.5); /* soft blue glow */
+    border-color: #488abc; /* optional: border color to match */
+
+}
+  .navbar_right {
+    position:relative;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+    flex: 1;
+  }
+  
+  
+  .profile_wrapper {
+    position: relative; /* This makes the dropdown position relative to this */
+  }
+  
+    .profile_drop_down {
+        position: absolute;
+        top: 2.5rem;
+        right: -1rem;
+        width: 200px;
+        background-color: #5c5b5b;
+        padding: 0.5rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        display: none;
+        flex-direction: column;
+        gap: 0.25rem;
+        /*
+        z-index: 100;*/
+      }
+      
+      .profile_drop_down > div {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: white;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      
+      .profile_drop_down > div:hover {
+        background-color: #ebe9e949;
+        /* optional: slightly scale or animate */
+      }
+      .profile_drop_down .material-symbols-outlined {
+        font-size: 1.5rem;
+      }      
+  
+  /* Show dropdown when .show class is toggled on profile_wrapper */
+  .profile_wrapper.show .profile_drop_down {
+    display: flex;
+  }
+  .settings-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+  
