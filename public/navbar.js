@@ -28,3 +28,9 @@ const profileWrapper = document.querySelector(".profile_wrapper");
 profileIcon.addEventListener("click", () => {
   profileWrapper.classList.toggle("show");
 });
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.querySelector('.sidebar');
+
+hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
