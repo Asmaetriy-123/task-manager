@@ -31,7 +31,14 @@
     "sidebar content";
   height: 100vh;
 }
-  
+.hamburger {
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+} 
   
 .sidebar {
   grid-area: sidebar;
@@ -128,12 +135,6 @@
     margin-top: 2rem;
     font-size: 1.4rem;
   }
-  
- 
- 
-  
- 
-  
   
   #search_icon,
   #profile_icon,
@@ -232,96 +233,39 @@
     display: flex;
     align-items: center;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
+    /* Your styles for extra small screens go here */
     .sidebar {
-      width: 60px; /* or hide it completely */
-      padding: 1rem 0.5rem;
+      position: fixed;
+      top: 0;
+      left: -250px; /* hide off-screen */
+      width: 220px;
+      height: 100vh;
+      background-color: #1f1f1f;
+      padding: 1.5rem 1rem;
+      z-index: 200;
+      transition: left 0.3s ease-in-out;
+    }
+    .sidebar.open {
+      left: 0; /* slide in */
+    }
+    .layout {
+      grid-template-columns: 1fr !important; /* sidebar doesn't take grid space */
     }
   
-    .sidebar .nav-item span:not(.material-icons) {
-      display: none; /* hides the text, keeps only icons */
+    .nav-item span:not(.material-icons) {
+      display: none; /* only icons show */
     }
+    .hamburger {
+      display: block;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 300;
+    }
+  }
   
-    .main-content {
-      padding: 1rem;
-    }
-  
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
 
-    .main-content {
-      flex: 1;
-      min-width: 0;
-      overflow-x: auto;
-    }
-  }
-  @media (max-width: 500px) {
-    header h1 {
-      font-size: 1.4rem;
-    }
-  
-    .tasks-section h2 {
-      font-size: 1.2rem;
-    }
-  }
-  /* Initially hide the button on large screens */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-@media (max-width: 768px) {
-  /* Sidebar hidden by default */
-  .sidebar {
-    position: fixed;
-    left: -100%;
-    top: 0;
-    width: 250px;
-    height: 100vh;
-    background-color: #1f1f1f;
-    transition: left 0.3s ease;
-    z-index: 200;
-    padding: 1rem;
-  }
-
-  /* Sidebar visible when open */
-  .sidebar.open {
-    left: 0;
-  }
-
-  /* Hide text labels, keep only icons */
-  .sidebar .nav-item span:not(.material-icons) {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
-  }
-
-  .navbar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .main-content {
-    padding: 1rem;
-    flex: 1;
-    min-width: 0;
-    overflow-x: auto;
-  }
-
-  .layout {
-    grid-template-columns: 1fr;
-  }
-}
+ 
