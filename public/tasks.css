@@ -31,14 +31,7 @@
     "sidebar content";
   height: 100vh;
 }
-.hamburger {
-  display: block;
-  font-size: 2rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: white;
-} 
+
   
 .sidebar {
   grid-area: sidebar;
@@ -48,13 +41,41 @@
 }
 
 .navbar {
+  /*
   grid-area: navbar;
   background-color: #25292b;
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
+  color: white;*/
+  grid-area: navbar;
+  display: flex; /* Still useful for aligning content inside */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background-color: #25292b;
   color: white;
 }
+.navbar_left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+/*
+  .navbar_right {
+    position:relative;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+    flex: 1;
+  }
+  */
+  .navbar_right {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  
 
 .main-content {
   grid-area: content;
@@ -141,6 +162,10 @@
   .settings-link {
     cursor: pointer;
     user-select: none;
+    /*these are new lines*/
+    font-size: 1.3rem;
+  display: flex;
+  align-items: center;
   }
  
   
@@ -175,15 +200,7 @@
     border-color: #35393d; /* optional: border color to match */
 
 }
-  .navbar_right {
-    position:relative;
-    display: flex;
-    justify-content: flex-end;
-    gap: 3rem;
-    flex: 1;
-  }
-  
-  
+
   .profile_wrapper {
     position: relative; /* This makes the dropdown position relative to this */
   }

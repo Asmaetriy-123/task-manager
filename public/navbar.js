@@ -34,3 +34,14 @@ const sidebar = document.querySelector('.sidebar');
 hamburger.addEventListener('click', () => {
   sidebar.classList.toggle('open');
 });
+//for small screens
+// script.js or inline
+const dateElement = document.getElementById("date");
+
+const date = new Date();
+const optionsFull = { weekday: "long", day: "numeric", month: "long", year: "numeric" };
+const optionsMobile = { weekday: "short", day: "numeric", month: "short" };
+
+const isMobile = window.innerWidth <= 480;
+
+dateElement.textContent = date.toLocaleDateString("en-US", isMobile ? optionsMobile : optionsFull);
