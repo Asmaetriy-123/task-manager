@@ -1,15 +1,16 @@
-const date_element=document.getElementById("date")
-const today=new Date()
-const optionsWeekDay={weekday:'long'};
-const optionsDay={day:'numeric'};
-const optionsMonth={month:'long'};
-const optionsYear={year:'numeric'};
-const formattedDate=today.toLocaleDateString(undefined,optionsWeekDay)+" " +
-today.toLocaleDateString(undefined,optionsDay)+" "+
-today.toLocaleDateString(undefined,optionsMonth)+  " , "+
-today.toLocaleDateString(undefined,optionsYear)
-date_element.textContent=formattedDate;
-console.log(formattedDate)
+
+
+const dateElement = document.getElementById("date");
+const isMobile = window.innerWidth <= 480;
+
+const date = new Date();
+const options = isMobile
+  ? { weekday: "short", day: "numeric", month: "short" } // e.g. "Fri, 25 Apr"
+  : { weekday: "long", day: "numeric", month: "long", year: "numeric" }; // e.g. "Friday, 25 April, 2025"
+
+dateElement.textContent = date.toLocaleDateString("en-US", options);
+
+
 //showing the search bar when the search icon is clicked
 
 
@@ -38,14 +39,3 @@ const closeIcon=document.getElementById('close_icon');
 closeIcon.addEventListener('click',()=>{
   sidebar.classList.toggle('close')
 })
-//for small screens
-// script.js or inline
-const dateElement = document.getElementById("date");
-
-const date = new Date();
-const optionsFull = { weekday: "long", day: "numeric", month: "long", year: "numeric" };
-const optionsMobile = { weekday: "short", day: "numeric", month: "short" };
-
-const isMobile = window.innerWidth <= 480;
-
-dateElement.textContent = date.toLocaleDateString("en-US", isMobile ? optionsMobile : optionsFull);

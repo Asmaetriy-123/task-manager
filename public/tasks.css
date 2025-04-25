@@ -283,7 +283,7 @@
     .nav-links span:not(.material-icons) {
       display: none; /* only icons show */
     }
-    .hamburger {
+    #hamburger {
       display: block;
       background: none;
       border: none;
