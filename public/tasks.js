@@ -19,10 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "index.html";
     }
   });
+
+  /*
   document.getElementById("profile-toggle").addEventListener("click", () => {
     const dropdown = document.getElementById("dropdown-menu");
     dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-  });
+  });*/
   /*the logout and delete account code */
   
   document.getElementById("logout-btn").addEventListener("click", () => {
@@ -33,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("delete-account-btn").addEventListener("click", () => {
     alert("Account deletion requires backend logic.");
   });
+  /*
   document.addEventListener("DOMContentLoaded", () => {
     const dateSpan = document.getElementById("current-date");
     const today = new Date();
@@ -40,3 +43,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const formattedDate = today.toLocaleDateString("en-US", options);
     dateSpan.textContent = formattedDate;
   });
+  */

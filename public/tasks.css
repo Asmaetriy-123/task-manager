@@ -275,12 +275,8 @@
   font-size: 2rem;
   cursor: pointer;
 }
-
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
+  /* Sidebar hidden by default */
   .sidebar {
     position: fixed;
     left: -100%;
@@ -290,13 +286,42 @@
     background-color: #1f1f1f;
     transition: left 0.3s ease;
     z-index: 200;
+    padding: 1rem;
   }
 
+  /* Sidebar visible when open */
   .sidebar.open {
     left: 0;
   }
 
+  /* Hide text labels, keep only icons */
+  .sidebar .nav-item span:not(.material-icons) {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+  }
+
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main-content {
+    padding: 1rem;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+  }
+
   .layout {
-    grid-template-columns: 1fr; /* removes sidebar grid column */
+    grid-template-columns: 1fr;
   }
 }
