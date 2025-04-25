@@ -34,6 +34,10 @@ const sidebar = document.querySelector('.sidebar');
 hamburger.addEventListener('click', () => {
   sidebar.classList.toggle('open');
 });
+const closeIcon=document.getElementById('close_icon');
+closeIcon.addEventListener('click',()=>{
+  sidebar.classList.toggle('close')
+})
 //for small screens
 // script.js or inline
 const dateElement = document.getElementById("date");

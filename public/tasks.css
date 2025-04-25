@@ -31,7 +31,9 @@
     "sidebar content";
   height: 100vh;
 }
-
+#hamburger{
+  display:none;
+}
   
 .sidebar {
   grid-area: sidebar;
@@ -250,13 +252,21 @@
     display: flex;
     align-items: center;
   }
+
+  .close_icon{
+    visibility: hidden;
+  }
   @media (max-width: 480px) {
     /* Your styles for extra small screens go here */
+    .navbar{
+      left:0;
+      position:fixed;
+    }
     .sidebar {
       position: fixed;
       top: 0;
-      left: -250px; /* hide off-screen */
-      width: 220px;
+      left: -180px; /* hide off-screen */
+      width: 180px;
       height: 100vh;
       background-color: #1f1f1f;
       padding: 1.5rem 1rem;
@@ -270,7 +280,7 @@
       grid-template-columns: 1fr !important; /* sidebar doesn't take grid space */
     }
   
-    .nav-item span:not(.material-icons) {
+    .nav-links span:not(.material-icons) {
       display: none; /* only icons show */
     }
     .hamburger {
@@ -280,7 +290,32 @@
       color: white;
       font-size: 1.8rem;
       cursor: pointer;
-      z-index: 300;
+    }
+    .sidebar_title::after{
+      content: "\A";       /* Correct: \A means newline */
+      white-space: pre;    /* Makes \A actually work */
+    }
+    .close_icon{
+     visibility: visible;
+     cursor: pointer;
+     user-select: none;
+     /*these are new lines*/
+     font-size: 1.3rem;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+    }
+    .sidebar.close{
+      position: fixed;
+      top: 0;
+      left: -180px; /* hide off-screen */
+      width: 180px;
+      height: 100vh;
+      background-color: #1f1f1f;
+      padding: 1.5rem 1rem;
+      z-index: 200;
+      transition: left 0.3s ease-in-out;
+
     }
   }
   
