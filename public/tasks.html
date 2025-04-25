@@ -6,16 +6,12 @@
   <link rel="stylesheet" href="tasks.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-
-    <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="navbar.css">
   <title>Task Manager - Tasks</title>
 </head>
 <body>
-  <div class="container">
-    <div class="layout">
-    
-      <!--this is the sidebar-->
-      <!-- Sidebar -->
+  <div class="layout">
+    <!-- Sidebar -->
     <aside class="sidebar">
       <h2 class="app-title">Task Manager</h2>
       <nav class="nav-links">
@@ -32,62 +28,47 @@
         </div>
       </nav>
     </aside>
-      
-        <!--this is the navbar-->
-      <div class="navbar">
-          <!--this is the date-->
-          <div class="navbar_left">
-          <span class="today's date" id="date"> </span>
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar_left">
+        <span class="today-date" id="date"></span>
       </div>
-              <!--this is the search icon & the search bar-->
       <div class="navbar_right">
-          <span class="material-symbols-outlined" id="search_icon">search</span>
-           <input type="search" class="search_bar" id="input_search_bar" placeholder="Type to search">
-          <!--this is the settings icon-->
-          <a href="settings.html" class="settings-link" target="_blank">
-              <span class="material-symbols-outlined">settings</span>
-            </a>
-          <!--this is the profile section-->
-          <div class="profile_wrapper">
-              <span class="material-symbols-outlined" id="profile_icon"> account_circle</span>
-              <div class="profile_drop_down" id="drop_down_menu">
-      
-                  <div class="logout"> <span class="material-symbols-outlined">logout </span>
-                      <span>logout</span>
-                  </div>
-                  <div class="delete_account">
-                      <span class="material-symbols-outlined">delete_forever</span>
-                      <span>Delete account</span>
-      
-                  </div>
-              
-              </div>
+        <span class="material-symbols-outlined" id="search_icon">search</span>
+        <input type="search" class="search_bar" id="input_search_bar" placeholder="Type to search">
+        <a href="settings.html" class="settings-link" target="_blank">
+          <span class="material-symbols-outlined">settings</span>
+        </a>
+        <div class="profile_wrapper">
+          <span class="material-symbols-outlined" id="profile_icon">account_circle</span>
+          <div class="profile_drop_down" id="drop_down_menu">
+            <div class="logout">
+              <span class="material-symbols-outlined">logout</span>
+              <span>Logout</span>
+            </div>
+            <div class="delete_account">
+              <span class="material-symbols-outlined">delete_forever</span>
+              <span>Delete account</span>
+            </div>
           </div>
+        </div>
       </div>
-      
-          <span></span>
-      
-      
-      
-      </div>
-      </div>
-      
-   
-    
+    </header>
 
     <!-- Main content -->
     <main class="main-content">
       <header>
         <h1>Hello, <span id="username">User</span></h1>
       </header>
-
       <section class="tasks-section">
         <h2>Today's Tasks</h2>
         <div id="tasks-list"></div>
       </section>
     </main>
   </div>
-<script src="navbar.js"></script>
+
+  <script src="navbar.js"></script>
   <script src="script.js"></script>
   <script src="tasks.js"></script>   
 </body>
