@@ -1,4 +1,6 @@
-
+console.log("Navbar JS Loaded");
+console.log(document.getElementById("hamburger"));
+console.log(document.getElementById("sidebar"));
   const hamburger = document.getElementById("hamburger");
   const closeIcon = document.getElementById("close_icon");
   const sidebar = document.getElementById("sidebar");
