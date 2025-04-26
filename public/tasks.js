@@ -20,27 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /*
-  document.getElementById("profile-toggle").addEventListener("click", () => {
-    const dropdown = document.getElementById("dropdown-menu");
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-  });*/
+ 
   /*the logout and delete account code */
   
-  document.getElementById("logout-btn").addEventListener("click", () => {
+  document.getElementById("logout_btn").addEventListener("click", () => {
     localStorage.removeItem("token");
     window.location.href = "index.html";
   });
   
-  document.getElementById("delete-account-btn").addEventListener("click", () => {
+  document.getElementById("delete_account_btn").addEventListener("click", () => {
     alert("Account deletion requires backend logic.");
   });
-  /*
-  document.addEventListener("DOMContentLoaded", () => {
-    const dateSpan = document.getElementById("current-date");
-    const today = new Date();
-    const options = { weekday: "long", month: "long", day: "numeric" };
-    const formattedDate = today.toLocaleDateString("en-US", options);
-    dateSpan.textContent = formattedDate;
-  });
-  */
+  
