@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
 
   hamburger.addEventListener("click", () => {
+    console.log("Hamburger clicked!");  // Add this line to debug
+
     sidebar.classList.add("open");  // when you click hamburger, sidebar slides in
   });
 
