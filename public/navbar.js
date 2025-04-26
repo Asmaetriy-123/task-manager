@@ -5,16 +5,25 @@ console.log(document.getElementById("sidebar"));
   const closeIcon = document.getElementById("close_icon");
   const sidebar = document.getElementById("sidebar");
 
-  hamburger.addEventListener("click", () => {
-    console.log("Hamburger clicked!");  // Add this line to debug
+ // Hamburger click
+hamburger.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent event bubbling
+  console.log("Hamburger clicked!");
+  sidebar.classList.add("open");
+});
 
-    sidebar.classList.add("open");  // when you click hamburger, sidebar slides in
-  });
-
-  closeIcon.addEventListener("click", () => {
-    sidebar.classList.remove("open"); // when you click close icon, sidebar slides out
-  });
-
+// Close icon click
+closeIcon.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent event bubbling
+  console.log("Close icon clicked!");
+  sidebar.classList.remove("open");
+});
+// Close sidebar when clicking outside
+document.addEventListener("click", (e) => {
+  if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+      sidebar.classList.remove("open");
+  }
+});
   // DATE 
   const dateElement = document.getElementById("date");
   function updateDate() {

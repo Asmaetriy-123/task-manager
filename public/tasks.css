@@ -300,17 +300,22 @@
       content: "\A";       /* Correct: \A means newline */
       white-space: pre;    /* Makes \A actually work */
     }
-    #close_icon{
-      display:block;
-     cursor: pointer;
-     user-select: none;
-     /*these are new lines*/
-     font-size: 1.3rem;
-   display: flex;
-   align-items: center;
-   justify-content: flex-end;
-    }
-   
+    #close_icon {
+      cursor: pointer;
+      z-index: 400; /* Higher than sidebar's z-index */
+      position: fixed; /* Changed from absolute */
+      top: 1.5rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      padding: 5px;
+      transition: transform 0.2s;
+  }
+  
+  #close_icon:hover {
+      transform: scale(1.1);
+      background: rgba(0,0,0,0.5);
+  }
   }
   
 
