@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // SIDEBAR toggle
+
   const hamburger = document.getElementById("hamburger");
   const closeIcon = document.getElementById("close_icon");
   const sidebar = document.getElementById("sidebar");
@@ -44,4 +43,4 @@ document.addEventListener("DOMContentLoaded", () => {
   profileIcon.addEventListener("click", () => {
     profileWrapper.classList.toggle("show");
   });
-});
+;
