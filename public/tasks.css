@@ -254,7 +254,6 @@
     }
     .navbar_right {
       width:100px;
-      background-color: #d67e7e;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -274,7 +273,6 @@
     .sidebar.open {
       left: 0; /* slide in */
       z-index: 300;
-      display: block;
 
     }
    
