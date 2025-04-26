@@ -1,41 +1,45 @@
+// ===== navbar.js =====
 
-
+// Dynamically adjust the date format based on screen size
 const dateElement = document.getElementById("date");
-const isMobile = window.innerWidth <= 480;
+const updateDate = () => {
+  const isMobile = window.innerWidth <= 480;
+  const date = new Date();
+  const options = isMobile
+    ? { weekday: "short", day: "numeric", month: "short" }
+    : { weekday: "long", day: "numeric", month: "long", year: "numeric" };
 
-const date = new Date();
-const options = isMobile
-  ? { weekday: "short", day: "numeric", month: "short" } // e.g. "Fri, 25 Apr"
-  : { weekday: "long", day: "numeric", month: "long", year: "numeric" }; // e.g. "Friday, 25 April, 2025"
+  dateElement.textContent = date.toLocaleDateString("en-US", options);
+};
 
-dateElement.textContent = date.toLocaleDateString("en-US", options);
+updateDate();
+window.addEventListener("resize", updateDate);
 
+// Toggle sidebar on hamburger click
+const hamburger = document.getElementById("hamburger");
+const sidebar = document.querySelector(".sidebar");
+const closeIcon = document.getElementById("close_icon");
 
-//showing the search bar when the search icon is clicked
+hamburger.addEventListener("click", () => {
+  sidebar.classList.add("open");
+});
 
+closeIcon.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+});
 
-const search_icon=document.getElementById("search_icon");
-const search_bar=document.getElementById('input_search_bar');
+// Toggle search bar visibility
+const searchIcon = document.getElementById("search_icon");
+const searchBar = document.getElementById("input_search_bar");
 
-search_icon.addEventListener('click',function(){
+searchIcon.addEventListener("click", () => {
+  searchBar.classList.toggle("visible");
+});
 
-    search_bar.classList.toggle("visible");
-})
-
-//adding a drop_down menu when hitting th profile icon
+// Profile dropdown toggle
 const profileIcon = document.getElementById("profile_icon");
 const profileWrapper = document.querySelector(".profile_wrapper");
 
 profileIcon.addEventListener("click", () => {
   profileWrapper.classList.toggle("show");
 });
-const hamburger = document.getElementById('hamburger');
-const sidebar = document.querySelector('.sidebar');
-
-hamburger.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-});
-const closeIcon=document.getElementById('close_icon');
-closeIcon.addEventListener('click',()=>{
-  sidebar.classList.toggle('close')
-})
