@@ -1,47 +1,78 @@
-/* ===================
-   RESET AND BASE STYLES
-   =================== */
-   :root {
-    --sidebar-width: clamp(180px, 60vw, 250px);
+
+:root {
+  --sidebar-width: clamp(200px, 20vw, 300px);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --sidebar-width: clamp(150px, 60vw, 300px);
   }
-  
-  * {
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
   body {
+    margin: 0;
     font-family: 'Segoe UI', sans-serif;
     height: 100vh;
-    background-color: #f9f9f9;
-    overflow-x: hidden;
+    background-color:#f9f9f9;
   }
   
-  .layout {
-    display: grid;
-    grid-template-columns: var(--sidebar-width) 1fr;
-    grid-template-rows: 80px auto;
-    grid-template-areas:
-      "sidebar navbar"
-      "sidebar content";
-    height: 100vh;
+  /* Use layout to control sidebar/navbar/content */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 80px auto;
+  grid-template-areas: 
+    "sidebar navbar"
+    "sidebar content";
+  height: 100vh;
+}
+#hamburger{
+  display:none;
+}
+  
+.sidebar {
+  grid-area: sidebar;
+  background-color: #1f1f1f;
+  color: white;
+  padding: 1.5rem;
+}
+
+.navbar {
+
+  grid-area: navbar;
+  display: flex; /* Still useful for aligning content inside */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background-color: #25292b;
+  color: white;
+}
+.navbar_left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+  .navbar_right {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
   }
   
-  /* ===================
-     SIDEBAR
-     =================== */
-  .sidebar {
-    grid-area: sidebar;
-    background-color: #1f1f1f;
-    color: white;
-    padding: 1.5rem;
-    transition: left 0.3s ease;
-  }
+
+.main-content {
+  grid-area: content;
+  padding: 2rem;
+  overflow-y: auto;
+}
   
-  .sidebar h2 {
+  .app-title {
     margin-bottom: 2rem;
-    font-size: 1.5rem;
   }
   
   .nav-links {
@@ -72,148 +103,209 @@
     justify-content: space-between;
     padding: 10px;
     border-radius: 6px;
+    transition: background-color 0.2s;
+    color: white;
+    text-decoration: none;
+    gap: 10px;
   }
   
   .workspace-container:hover {
     background-color: #353535;
   }
-  
-  /* ===================
-     NAVBAR
-     =================== */
-  .navbar {
-    grid-area: navbar;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7rem 1rem;
-    background-color: #25292b;
-    color: white;
-    position: relative;
-  }
-  
-  .navbar_left {
+  .workspace {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 10px;
+    padding: 0;
   }
   
-  .navbar_right {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
   
-  .hamburger {
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: white;
+  .plus-icon {
+    font-size: 20px;
+    color: #ddd;
     cursor: pointer;
-    display: none;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
   }
   
-  /* ===================
-     SEARCH BAR
-     =================== */
+  .plus-icon:hover {
+    background-color: #555;
+  }
+  
+  
+  
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .tasks-section h2 {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+  }
+  
+  #search_icon,
+  #profile_icon,
+  .settings-link {
+    cursor: pointer;
+    user-select: none;
+    /*these are new lines*/
+    font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  }
+ 
+  
   .search_bar {
     opacity: 0;
-    position: absolute;
-    right: 12rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    max-width: 80%;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    transition: opacity 0.3s ease, box-shadow 0.3s ease;
-  }
+  user-select: none;
+
+  width: 250px; /* fixed width is cleaner */
+  max-width: 90%; /* responsive fallback */
+  position: absolute;
+  right: 12rem;
+  top: 45%;
+  transform: translateY(-50%);
+  padding: 0.6rem 1.2rem;
   
+  border: 1px solid #ccc;
+  border-radius: 20px; /* more natural roundness */
+  background-color: white;
+
+  
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+   
+  }
+  /* Visible state toggled by JS */
   .search_bar.visible {
     opacity: 1;
   }
-  
-  .search_bar:focus {
+  .search_bar:focus{
     outline: none;
-    border-color: #35393d;
-    box-shadow: 0 0 10px rgba(53, 66, 75, 0.5);
-  }
-  
-  /* ===================
-     PROFILE DROPDOWN
-     =================== */
+    border: none;
+    box-shadow: 0 0 10px rgba(53, 66, 75, 0.5); /* soft blue glow */
+    border-color: #35393d; /* optional: border color to match */
+
+}
+
   .profile_wrapper {
-    position: relative;
+    position: relative; /* This makes the dropdown position relative to this */
   }
   
-  .profile_drop_down {
-    position: absolute;
-    top: 2.5rem;
-    right: 0;
-    background-color: #5c5b5b;
-    width: 150px;
-    border-radius: 8px;
-    display: none;
-    flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+    .profile_drop_down {
+        position: absolute;
+        top: 2.5rem;
+        right: -1rem;
+        width: 200px;
+        background-color: #5c5b5b;
+        padding: 0.5rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        display: none;
+        flex-direction: column;
+        gap: 0.25rem;
+        /*
+        z-index: 100;*/
+      }
+      
+      .profile_drop_down > div {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: white;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      
+      .profile_drop_down > div:hover {
+        background-color: #ebe9e949;
+        /* optional: slightly scale or animate */
+      }
+      .profile_drop_down .material-symbols-outlined {
+        font-size: 1.5rem;
+      }      
   
-  .profile_drop_down > div {
-    padding: 0.7rem 1rem;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .profile_drop_down > div:hover {
-    background-color: #696969;
-  }
-  
+  /* Show dropdown when .show class is toggled on profile_wrapper */
   .profile_wrapper.show .profile_drop_down {
     display: flex;
   }
-  
-  /* ===================
-     RESPONSIVE (MOBILE)
-     =================== */
-  @media (max-width: 600px) {
-    .layout {
-      grid-template-columns: 1fr;
+  .settings-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+
+  #close_icon{
+    visibility: hidden;
+  }
+  @media (max-width: 480px) {
+    /* Your styles for extra small screens go here */
+    .navbar{
+      left:0;
+      position:fixed;
     }
-  
+    .navbar_right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; /* instead of 1.2rem */
+    }
     .sidebar {
       position: fixed;
       top: 0;
-      left: -250px;
-      width: var(--sidebar-width);
+      left: -180px; /* hide off-screen */
+      width: 180px;
       height: 100vh;
+      background-color: #1f1f1f;
+      padding: 1.5rem 1rem;
       z-index: 200;
-      transition: left 0.3s ease;
+      transition: left 0.3s ease-in-out;
     }
-  
     .sidebar.open {
-      left: 0;
+      left: 0; /* slide in */
     }
-  
-    .hamburger {
-      display: block;
+    .layout {
+      grid-template-columns: 1fr !important; /* sidebar doesn't take grid space */
     }
   
     .nav-links span:not(.material-icons) {
-      display: none;
+      display: none; /* only icons show */
     }
-  
-    .close_icon {
+    #hamburger {
       display: block;
-      margin-left: auto;
-      cursor: pointer;
+      background: none;
+      border: none;
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
     }
-  
-    .sidebar_title::after {
-      content: "\A";
-      white-space: pre;
+    .search_bar {
+      opacity: 0;
+      position: absolute;
+      right: 5rem; /* closer to the right */
+      top: 50%;
+      transform: translateY(-50%);
+      /* rest is fine */
     }
+    .sidebar_title::after{
+      content: "\A";       /* Correct: \A means newline */
+      white-space: pre;    /* Makes \A actually work */
+    }
+    #close_icon{
+     visibility: visible;
+     cursor: pointer;
+     user-select: none;
+     /*these are new lines*/
+     font-size: 1.3rem;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+    }
+   
   }
+  
+
+ 
