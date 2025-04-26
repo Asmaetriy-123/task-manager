@@ -31,9 +31,7 @@
     "sidebar content";
   height: 100vh;
 }
-#hamburger{
-  display:none;
-}
+
   
 .sidebar {
   grid-area: sidebar;
@@ -69,6 +67,9 @@
   grid-area: content;
   padding: 2rem;
   overflow-y: auto;
+    padding: 2rem;
+    margin-left: 1rem; /* new line */
+  
 }
   
   .app-title {
@@ -133,8 +134,6 @@
     background-color: #555;
   }
   
-  
-  
   header h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -155,8 +154,7 @@
   display: flex;
   align-items: center;
   }
- 
-  
+
   .search_bar {
     opacity: 0;
   user-select: none;
@@ -172,8 +170,6 @@
   border: 1px solid #ccc;
   border-radius: 20px; /* more natural roundness */
   background-color: white;
-
-  
   transition: opacity 0.3s ease, box-shadow 0.3s ease;
    
   }
@@ -205,8 +201,7 @@
         display: none;
         flex-direction: column;
         gap: 0.25rem;
-        /*
-        z-index: 100;*/
+        
       }
       
       .profile_drop_down > div {
@@ -238,10 +233,11 @@
     display: flex;
     align-items: center;
   }
-
-  #close_icon{
-    visibility: hidden;
-  }
+  #hamburger,
+#close_icon {
+  display: none; /* hide normally */
+}
+  
   @media (max-width: 480px) {
     /* Your styles for extra small screens go here */
     .navbar{
@@ -295,7 +291,7 @@
       white-space: pre;    /* Makes \A actually work */
     }
     #close_icon{
-     visibility: visible;
+      display:block;
      cursor: pointer;
      user-select: none;
      /*these are new lines*/
