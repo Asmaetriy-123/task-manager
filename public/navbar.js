@@ -1,21 +1,19 @@
 // ===== navbar.js =====
 
-// Dynamically adjust the date format based on screen size
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Dynamically adjust the date format based on screen size
 const dateElement = document.getElementById("date");
 const updateDate = () => {
   const isMobile = window.innerWidth <= 480;
   const date = new Date();
-  const options = isMobile
-    ? { weekday: "short", day: "numeric", month: "short" }
-    : { weekday: "long", day: "numeric", month: "long", year: "numeric" };
-
+  const options = isMobile? { weekday: "short", day: "numeric", month: "short" }: { weekday: "long", day: "numeric", month: "long", year: "numeric" };
   dateElement.textContent = date.toLocaleDateString("en-US", options);
 };
 
 updateDate();
 window.addEventListener("resize", updateDate);
-
-// Toggle sidebar on hamburger click
+  // Toggle sidebar on hamburger click
 const hamburger = document.getElementById("hamburger");
 const sidebar = document.querySelector(".sidebar");
 const closeIcon = document.getElementById("close_icon");
@@ -27,7 +25,6 @@ hamburger.addEventListener("click", () => {
 closeIcon.addEventListener("click", () => {
   sidebar.classList.remove("open");
 });
-
 // Toggle search bar visibility
 const searchIcon = document.getElementById("search_icon");
 const searchBar = document.getElementById("input_search_bar");
@@ -43,3 +40,9 @@ const profileWrapper = document.querySelector(".profile_wrapper");
 profileIcon.addEventListener("click", () => {
   profileWrapper.classList.toggle("show");
 });
+
+})
+
+
+
+
