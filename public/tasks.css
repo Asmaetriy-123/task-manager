@@ -239,15 +239,25 @@
 }
   
   @media (max-width: 480px) {
+    .layout {
+      display: block !important; /* override grid entirely */
+    }
     /* Your styles for extra small screens go here */
     .navbar{
-      left:0;
-      position:fixed;
+      left: 0;
+     top: 0;
+     right: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+     
     }
     .navbar_right {
+      background-color: #d67e7e;
       display: flex;
+      justify-content: flex-end;
       align-items: center;
-      gap: 0.5rem; /* instead of 1.2rem */
+      gap: 0.3rem; /* instead of 1.2rem */
     }
     .sidebar {
       position: fixed;
@@ -262,10 +272,10 @@
     }
     .sidebar.open {
       left: 0; /* slide in */
+      z-index: 300;
+
     }
-    .layout {
-      grid-template-columns: 1fr !important; /* sidebar doesn't take grid space */
-    }
+   
   
     .nav-links span:not(.material-icons) {
       display: none; /* only icons show */
