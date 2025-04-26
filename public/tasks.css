@@ -274,6 +274,7 @@
     .sidebar.open {
       left: 0; /* slide in */
       z-index: 300;
+      display: block;
 
     }
    

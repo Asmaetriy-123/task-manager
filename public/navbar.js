@@ -17,14 +17,16 @@ window.addEventListener("resize", updateDate);
 const hamburger = document.getElementById("hamburger");
 const sidebar = document.querySelector(".sidebar");
 const closeIcon = document.getElementById("close_icon");
-
-hamburger.addEventListener("click", () => {
+function sidebarFun(){
   sidebar.classList.add("open");
-});
-
-closeIcon.addEventListener("click", () => {
+}
+function closeSideBar(){
   sidebar.classList.remove("open");
-});
+
+
+}
+
+
 // Toggle search bar visibility
 const searchIcon = document.getElementById("search_icon");
 const searchBar = document.getElementById("input_search_bar");
@@ -32,6 +34,7 @@ const searchBar = document.getElementById("input_search_bar");
 searchIcon.addEventListener("click", () => {
   searchBar.classList.toggle("visible");
 });
+
 
 // Profile dropdown toggle
 const profileIcon = document.getElementById("profile_icon");
