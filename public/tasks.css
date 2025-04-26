@@ -240,7 +240,7 @@
   
   @media (max-width: 480px) {
     .layout {
-      display: block !important; /* override grid entirely */
+      display: block; /* override grid entirely */
     }
     /* Your styles for extra small screens go here */
     .navbar{
@@ -253,6 +253,7 @@
      
     }
     .navbar_right {
+      width:100px;
       background-color: #d67e7e;
       display: flex;
       justify-content: flex-end;
