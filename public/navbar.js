@@ -9,7 +9,7 @@ console.log(document.getElementById("close_icon"))
  // Hamburger click
  try {
   hamburger.addEventListener("click", (e) => {
-    console.log("Clicked!"); // Check if this logs
+    console.log("hamburger menu is Clicked!"); // Check if this logs
     sidebar.classList.add("open");
   });
 } catch (error) {
