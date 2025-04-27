@@ -6,12 +6,15 @@ console.log(document.getElementById("sidebar"));
   const sidebar = document.getElementById("sidebar");
 
  // Hamburger click
-hamburger.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent event bubbling
-  console.log("Hamburger clicked!");
-  sidebar.classList.add("open");
-});
-
+ try {
+  hamburger.addEventListener("click", (e) => {
+    console.log("Clicked!"); // Check if this logs
+    sidebar.classList.add("open");
+  });
+} catch (error) {
+  console.error("Hamburger error:", error); // Logs the exact issue
+}
+/*
 // Close icon click
 closeIcon.addEventListener("click", (e) => {
   e.stopPropagation(); // Prevent event bubbling
@@ -23,7 +26,7 @@ document.addEventListener("click", (e) => {
   if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
       sidebar.classList.remove("open");
   }
-});
+});*/
   // DATE 
   const dateElement = document.getElementById("date");
   function updateDate() {
@@ -44,6 +47,7 @@ document.addEventListener("click", (e) => {
   const searchBar = document.getElementById("input_search_bar");
 
   searchIcon.addEventListener("click", () => {
+    console.log("search icon is cliked")
     searchBar.classList.toggle("visible");
   });
 
@@ -52,6 +56,7 @@ document.addEventListener("click", (e) => {
   const profileWrapper = document.querySelector(".profile_wrapper");
 
   profileIcon.addEventListener("click", () => {
+    console.log("profile is clicked")
     profileWrapper.classList.toggle("show");
   });
 ;

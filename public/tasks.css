@@ -271,7 +271,7 @@
       transition: left 0.3s ease-in-out;
     }
     .sidebar.open {
-      left: 0; /* slide in */
+      left: 0 !important;
       z-index: 300;
 
     }
@@ -281,12 +281,17 @@
       display: none; /* only icons show */
     }
     #hamburger {
+      pointer-events: auto !important;
+      z-index: 1000;
       display: block;
       background: none;
       border: none;
       color: white;
       font-size: 1.8rem;
       cursor: pointer;
+      background: red !important; /* Make it obvious */
+  width: 30px !important;
+  height: 30px !important;
     }
     .search_bar {
       opacity: 0;
