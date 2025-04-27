@@ -289,7 +289,6 @@
       color: white;
       font-size: 1.8rem;
       cursor: pointer;
-      background: red !important; /* Make it obvious */
   width: 30px !important;
   height: 30px !important;
     }
@@ -306,6 +305,7 @@
       white-space: pre;    /* Makes \A actually work */
     }
     #close_icon {
+      background-color: #e25757;
       cursor: pointer;
       z-index: 400; /* Higher than sidebar's z-index */
       position: fixed; /* Changed from absolute */

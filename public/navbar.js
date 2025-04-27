@@ -1,6 +1,7 @@
 console.log("Navbar JS Loaded");
 console.log(document.getElementById("hamburger"));
 console.log(document.getElementById("sidebar"));
+console.log(document.getElementById("close_icon"))
   const hamburger = document.getElementById("hamburger");
   const closeIcon = document.getElementById("close_icon");
   const sidebar = document.getElementById("sidebar");
@@ -14,7 +15,7 @@ console.log(document.getElementById("sidebar"));
 } catch (error) {
   console.error("Hamburger error:", error); // Logs the exact issue
 }
-/*
+
 // Close icon click
 closeIcon.addEventListener("click", (e) => {
   e.stopPropagation(); // Prevent event bubbling
@@ -26,7 +27,7 @@ document.addEventListener("click", (e) => {
   if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
       sidebar.classList.remove("open");
   }
-});*/
+});
   // DATE 
   const dateElement = document.getElementById("date");
   function updateDate() {
