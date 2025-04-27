@@ -271,7 +271,7 @@
       transition: left 0.3s ease-in-out;
     }
     .sidebar.open {
-      left: 0 !important;
+      left: 0 ;
       z-index: 300;
 
     }
@@ -281,7 +281,7 @@
       display: none; /* only icons show */
     }
     #hamburger {
-      pointer-events: auto !important;
+      pointer-events: auto;
       z-index: 1000;
       display: block;
       background: none;
@@ -289,8 +289,8 @@
       color: white;
       font-size: 1.8rem;
       cursor: pointer;
-  width: 30px !important;
-  height: 30px !important;
+  width: 30px ;
+  height: 30px ;
     }
     .search_bar {
       opacity: 0;
@@ -305,40 +305,24 @@
       white-space: pre;    /* Makes \A actually work */
     }
     #close_icon {
-      background-color: #e25757;
-      cursor: pointer;
-      z-index: 400; /* Higher than sidebar's z-index */
-      position: fixed; /* Changed from absolute */
+      display: none; /* Keep hidden by default */
+      position: fixed;
       top: 1.5rem;
       right: 1rem;
+      z-index: 400;
+      cursor: pointer;
+      color: white;
       background: rgba(0,0,0,0.3);
       border-radius: 50%;
       padding: 5px;
-      transition: transform 0.2s;
-  }
-  
-  #close_icon:hover {
-      transform: scale(1.1);
-      background: rgba(0,0,0,0.5);
-  }
+    }
+    
+    /* Add this new rule */
+    .sidebar.open ~ #close_icon {
+      display: block;
+    }
   /* Backdrop styles */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 299; /* Below sidebar (ensure sidebar has z-index: 100+) */
-  display: none; /* Hidden by default */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
-.sidebar.open ~ .backdrop {
-  display: block; /* Show when sidebar is open */
-  opacity: 1;
-}
   }
   
 
