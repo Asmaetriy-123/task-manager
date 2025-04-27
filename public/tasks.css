@@ -321,6 +321,24 @@
       transform: scale(1.1);
       background: rgba(0,0,0,0.5);
   }
+  /* Backdrop styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 299; /* Below sidebar (ensure sidebar has z-index: 100+) */
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.open ~ .backdrop {
+  display: block; /* Show when sidebar is open */
+  opacity: 1;
+}
   }
   
 

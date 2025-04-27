@@ -15,7 +15,9 @@ console.log(document.getElementById("close_icon"))
 } catch (error) {
   console.error("Hamburger error:", error); // Logs the exact issue
 }
-
+document.getElementById("backdrop").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.remove("open");
+});
 // Close icon click
 closeIcon.addEventListener("click", (e) => {
   e.stopPropagation(); // Prevent event bubbling
